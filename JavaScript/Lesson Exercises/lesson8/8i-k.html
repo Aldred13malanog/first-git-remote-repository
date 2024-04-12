@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>8i-k(coin flip game continuation)</title>
+	</head>
+	<body>
+		<button onclick="
+			playGame('heads');
+		">heads</button>
+		<button onclick="
+			playGame('tails');
+		">tails</button>
+
+		<script>
+			const score = JSON.parse(localStorage.getItem('score')) || {
+				wins: 0,
+				loses: 0
+			}
+			
+			localStorage.getItem('score');
+
+
+			function playGame(guess) {
+				const randomNumber = Math.random();
+				const result = randomNumber < 0.5 ? 'heads' : 'tails';
+
+				console.log(result === guess ? 'You win!' : 'You lose');
+
+				if (guess === result) {
+					score.wins++;
+				} else {
+					score.loses++;
+				}
+				console.log(`Wins: ${score.wins} Loses: ${score.loses}`);
+				localStorage.setItem('score', JSON.stringify(score));
+			}
+
+			/*
+			if (randomNumber < 0.5) {
+				result = 'heads';
+			} else {
+			  result = 'tails';
+			}
+			*/
+			
+
+			/*
+			if (guess === result) {
+				console.log('You win!');
+			} else {
+				console.log('You lose!');
+			}
+			*/
+			
+
+		</script>
+	</body>
+</html>

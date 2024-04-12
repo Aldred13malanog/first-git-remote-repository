@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>7a-g</title>
+	<style>
+		body {
+			font-family: Arial;
+		}
+		.cat {
+			width: 200px;
+			border-radius: 10px;
+		}
+		.cat1 {
+			width: 130px;
+			height: 136px;
+			object-fit: cover;
+		}
+		.cat2 {
+			width: 140px;
+			height: 140px;
+			border-radius: 70px;
+			object-fit: cover;
+		}
+		.search {
+			padding: 12px;
+			font-size: 16px;
+			border-radius: 6px;
+			border: 1px solid gray;
+		}
+		.search::placeholder {
+			color: gray;
+			font-size: 16px;
+		}
+		.google {
+			padding: 14px 16px;
+			width: 500px;
+			font-size: 16px;
+			border-radius: 20px;
+			border: none;
+			box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+		}
+		.div {
+			border: 1px solid black;
+			padding-left: 10px;
+			padding-bottom: 10px;
+			margin-top: 10px;
+		}
+		.email {
+			color: gray;
+			margin-bottom: 0;
+		}
+		.inp {
+			width: 386px;
+			height: 30px;
+			border-radius: 4px;
+			border: 1px solid black;
+			margin-top: 6px;
+		}
+		.by {
+			color: gray;
+		}
+		.agree {
+			background-color: rgb(10, 102, 194);
+			border: none;
+			padding: 14px 138px;
+			color: white;
+			border-radius: 40px;
+			font-size: 20px;
+		}
+		.div2 {
+			border: 1px solid black;
+			margin-top: 20px;
+			padding: 10px;
+			width: 440px;
+		}
+		.cat3 {
+			height: 50px;
+			width: 50px;
+			object-fit: cover;
+			border-radius: 25px;
+			vertical-align: middle;
+			margin-right: 6px;
+		}
+		.input-tweet {
+			border: none;
+			vertical-align: middle;
+			width: 280px;
+			font-size: 16px;
+			padding: 8px;
+		}
+		.input-tweet::placeholder {
+			font-size: 16px;
+		}
+		.tweet {
+			background-color: rgb(29, 155, 240);
+			border: none;
+			padding: 10px 14px;
+			color: white;
+			border-radius: 20px;
+			vertical-align: middle;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<img class="cat" src="cat.jpg">
+	<img class="cat1" src="cat.jpg">
+	<img class="cat2" src="cat.jpg">
+
+	<input class="search" type="text" placeholder="Search"><br><br>
+
+	<input class="google" type="text" placeholder="Search Google or type a URL">
+
+	<div class="div">
+		<p class="email">Email</p>
+		<input class="inp" type="text">
+		<p class="by">By clicking Agree & Join, you agree to the Privay Policy</p>
+		<button class="agree">Agree & Join</button>
+	</div>
+	
+	<div class="div2">
+		<img class="cat3" src="cat.jpg">
+		<input class="input-tweet" placeholder="What's happening?">
+		<button class="tweet">Tweet</button>
+	</div>
+	
+</body>
+</html>

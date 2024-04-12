@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Guess the Number</title>
+</head>
+<body>
+	
+	<input class="input-number" type="number">
+	<button onclick="
+		submitAnswer();	
+	">Submit</button>
+	<button onclick="
+		randomNumbers();			
+	">Generate random number</button>
+	<script>
+		let randomNumber = '';
+		function randomNumbers() {
+			const ranNum = Math.floor(Math.random() * 100);
+			randomNumber = '';
+			randomNumber += ranNum;
+			
+		}
+		
+		function submitAnswer() {		
+			
+			const input = document.querySelector('.input-number');
+			const inputValue = input.value;
+
+			if (inputValue === randomNumber) {
+				alert('You are correct!')
+			} else if (inputValue < randomNumber) {
+				alert('Number is low!')
+			} else if (inputValue > randomNumber) {
+				alert('Number is high!')
+			}
+			
+		}
+	</script>
+</body>
+</html>

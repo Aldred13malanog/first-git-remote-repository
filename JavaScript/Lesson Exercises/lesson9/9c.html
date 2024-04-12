@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>9c</title>
+	</head>
+	<body>
+		<button onclick="
+			headsTails('heads')
+		">heads</button>
+		<button onclick="
+			headsTails('tails')
+		">tails</button>
+		<p></p>
+
+		<script>
+			function headsTails(value) {
+				document.querySelector('p')
+					.innerHTML = `You chose: ${value}`;
+			}
+		</script>
+	</body>
+</html>

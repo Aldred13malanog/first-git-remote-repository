@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>12a-d</title>
+	<style>
+		.flexbox1 {
+			display: flex;
+		}
+		.flexbox2 {
+			display: flex;
+			justify-content: space-between;
+		}
+		.flexbox3 {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			border: 1px solid gray;
+			height: 50px;
+		}
+		.lightblue {
+			background-color: lightblue;
+		}
+		.lightpink {
+			background-color: lightpink;
+		}
+		.item1 {
+			width: 200px;
+		}
+		.item2 {
+			width: 75px;
+		}
+		.item3 {
+			flex: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="flexbox1">
+		<div class="lightblue item1">200px</div>
+		<div class="lightpink item2">75px</div>
+	</div><br>
+
+	<div class="flexbox1">
+		<div class="lightblue item1">item1</div>
+		<div class="lightpink item3">item2</div>
+		<div class="lightblue item2">item3</div>
+	</div><br>
+
+	<div class="flexbox2">
+		<div class="lightblue">item1</div>
+		<div class="lightpink">item2</div>
+		<div class="lightblue">item3</div>
+		<div class="lightpink">item4</div>
+	</div><br>
+
+	<div class="flexbox3">
+		<div class="lightblue">item1</div>
+		<div class="lightpink">item2</div>
+	</div><br>
+</body>
+</html>

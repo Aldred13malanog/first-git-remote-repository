@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>11o,p</title>
+</head>
+<body>
+	<script>
+		const array1 = ['hello', 'world', 'search', 'good', 'search'];
+	  const array2 = ['not', 'found'];
+		let index = -1;
+		for (let i = 0; i < array1.length; i++) {
+			if (array1[i] === 'search') {
+				index = i;
+				break;
+			}
+		}
+		console.log(index);
+		index = -1;
+		for (let i = 0; i < array2.length; i++) {
+			if (array2[i] === 'search') {
+				index = i;
+				break;
+			}
+		}
+		console.log(index);
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>9d-f</title>
+</head>
+<body>
+	<input onkeydown="
+		if (event.key === 'Enter') {
+			submit();
+		}		
+	" type="text">
+	
+	<button onclick="
+		submit()
+	">Submit</button>
+	<p></p>
+
+	<script>
+		function submit() {
+			const input = document.querySelector('input')
+				.value;
+			document.querySelector('p')
+				.innerHTML = `Your name is: ${input}`;
+		}
+	</script>
+</body>	
+</html>

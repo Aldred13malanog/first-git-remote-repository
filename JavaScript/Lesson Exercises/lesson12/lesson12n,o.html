@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>12n,o</title>
+</head>
+<body>
+	<script>
+		/*Alternate solution for 12o from simon
+
+		function removeEgg(foods) {
+        let eggsRemoved = 0;
+
+        return foods.filter((food) => {
+          if (food === 'egg' && eggsRemoved < 2) {
+            eggsRemoved++;
+            return false;
+          }
+          return true;
+        });
+      }
+		
+		*/
+		function removeEgg(foods) {
+			return foods.filter((value, index) => {
+				if (value === 'egg' && index < 3) {
+					return false;
+				} else {
+					return true;
+				}
+			})
+		}
+
+		/*Shortcut ver 12n
+
+		function removeEgg(foods) {
+			return foods.filter(value => value === 'egg');
+		}
+
+		*/
+		console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+	</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+body {
+	background-color: rgb(24, 24, 24);
+	font-family: Arial;
+}
+p {
+	color: white;
+}
+img {
+	height: 50px;
+}
+.game-title {
+	font-size: 32px;
+	color: white;
+	font-weight: bold;
+	margin-top: 24px;
+}
+.play-button {
+	background-color: transparent;
+	border: 3px solid rgb(255, 255, 255);
+	padding: 32px;
+	margin-right: 14px;
+	margin-bottom: 40px;
+	border-radius: 70px;
+	cursor: pointer;
+}
+.result {
+	font-size: 26px;
+	font-weight: bold;
+}
+.moves {
+	margin-bottom: 60px;
+}
+.reset-button,
+.autoplay-button,
+.yes-button,
+.no-button {
+	background-color: #fff;
+	color: black;
+	padding: 8px 16px;
+	border: none;
+	font-size: 14px;
+	cursor: pointer;
+}

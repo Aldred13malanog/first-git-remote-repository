@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>10e,f</title>
+		<style>
+			button{
+				background-color: rgb(230, 230, 230);
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+				padding: 7px 13px;
+			}
+			.is-toggled {
+				background-color: black;
+				color: white;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+				padding: 7px 13px;
+			}
+		</style>
+	</head>
+	<body>
+		<button onclick="
+			onOff('.js-button1');
+		" class="btn js-button1">Gaming</button>
+		<button onclick="
+			onOff('.js-button2');
+		" class="btn js-button2">Music</button>
+		<button onclick="
+			onOff('.js-button3');
+		" class="btn js-button3">Tech</button>
+
+		<script>
+			function onOff(value) {
+				const button = document.querySelector(value);
+				const buttonContainsClass = button.classList.contains('is-toggled');
+
+				if (!buttonContainsClass) {
+					button.classList.add('is-toggled');
+				} else {
+					button.classList.remove('is-toggled');
+				}
+				console.log(button);
+			}
+		</script>
+	</body>
+</html>

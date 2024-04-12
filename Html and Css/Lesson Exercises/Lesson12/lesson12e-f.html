@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>12e-f</title>
+	<style>
+		body {
+			font-family: Arial;
+		}
+		p {
+			margin: 0;
+			font-size: 20px;			
+		}
+		.container {
+			display: flex;
+			flex-direction: column;
+			box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+			width: 300px;
+			border-radius: 4px;
+			padding: 12px 14px;
+			row-gap: 12px;
+		}
+		.container div {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;			
+		}
+		.container div div {
+			font-size: 20px;
+			background-color: rgb(49, 109, 245);
+			color: white;
+			padding: 4px 14px;
+			font-weight: bold;
+			border-radius: 16px;
+		}
+
+		.container2 {
+			display: flex;
+			align-items: center;
+			margin-top: 16px;
+		}
+		.profile-picture {
+			height: 50px;
+			width: 50px;
+			object-fit: cover;
+			border-radius: 25px;
+			margin-right: 14px;
+		}
+		.container2 div {
+			width: 200px;
+			line-height: 20px;
+		}
+		.name {
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.bio {
+			font-size: 16px;
+			color: gray;
+		}
+		.popularity {
+			font-size: 14px;
+			color: gray;
+		}
+		.follow-button {
+			background-color: rgb(29, 155, 240);
+			border: none;
+			border-radius: 4px;
+			padding: 8px 12px;
+			color: white;
+			font-weight: bold;
+			cursor: pointer;
+			font-size: 16px;
+		}
+
+		.container3 {
+			background-color: rgb(120, 82, 178);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 10px 12px;
+			margin-top: 20px;
+			width: 636px;
+		}
+		.container3 p {
+			font-size: 16px;
+			color: white;
+			font-weight: bold;
+		}
+		.search-bar {
+			width: 350px;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 18px;
+		}
+		.search-bar::placeholder {
+			color: gray;
+			font-size: 14px;
+		}
+		.download-button {
+			background-color: transparent;
+			border: 1px solid white;
+			color: white;
+			padding: 8px 12px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div>
+			<p>Home</p>
+			<div class="count">
+				14
+			</div>
+		</div>
+		<div>
+			<p>Notifications</p>
+			<div class="count">3</div>
+		</div>
+		<div>
+			<p>Messages</p>
+			<div class="count">5</div>
+		</div>		
+	</div>
+
+
+	<div class="container2">
+		<img class="profile-picture" src="cat.jpg">
+		<div>
+			<p class="name">oliver</p>
+			<p class="bio">the cat</p>
+			<p class="popularity">Popular</p>
+		</div>
+		<button class="follow-button">Follow</button>
+	</div>
+	<div class="container2">
+		<img class="profile-picture" src="cat2.jpg">
+		<div>
+			<p class="name">Mimi</p>
+			<p class="bio">Sleepy Cat</p>
+			<p class="popularity">Popular</p>
+		</div>
+		<button class="follow-button">Follow</button>
+	</div>
+	<div class="container2">
+		<img class="profile-picture" src="dog.jpg">
+		<div>
+			<p class="name">Rex</p>
+			<p class="bio">Happy Bulldog</p>
+			<p class="popularity">Popular</p>
+		</div>
+		<button class="follow-button">Follow</button>
+	</div>
+
+	<div class="container3">
+		<p>Home</p>
+		<input class="search-bar" type="text" placeholder="Search">
+		<button class="download-button">
+			Download
+		</button>
+	</div>
+</body>
+</html>

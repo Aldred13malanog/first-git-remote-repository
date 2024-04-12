@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Simple calculator</title>
+	</head>
+	<body>
+		<!--HTML-->
+		<h2>Calculator</h2>
+		<p class="js-show"></p>
+		<p>
+			<button onclick="
+				updateCal('1');
+			">1</button>
+			<button onclick="
+				updateCal('2');
+			">2</button>
+			<button onclick="
+				updateCal('3');
+			">3</button>
+			<button onclick="
+				updateCal(' + ');
+			">+</button>
+		</p>
+		<p>
+			<button onclick="
+				updateCal('4');
+			">4</button>
+			<button onclick="
+				updateCal('5');
+			">5</button>
+			<button onclick="
+				updateCal('6');
+			">6</button>
+			<button onclick="
+				updateCal(' - ');
+			">-</button>
+		</p>
+		<p>
+			<button onclick="
+				updateCal('7');
+			">7</button>
+			<button onclick="
+				updateCal('8');
+			">8</button>
+			<button onclick="
+				updateCal('9');
+			">9</button>
+			<button onclick="
+				updateCal(' * ');
+			">*</button>
+		</p>
+		<p>
+			<button onclick="
+				updateCal('0');
+			">0</button>
+			<button onclick="
+				updateCal('.');
+			">.</button>
+			<button onclick="
+				calculation = eval(calculation);
+				updCal();
+			">=</button>
+			<button onclick="
+				updateCal(' / ');
+			">/</button>
+		</p>
+		<button onclick="
+			calculation = '';
+			updCal();
+		">Clear</button><br><br>
+		<a href="simple calculator/simple calculator(final design).html">Click here for the final design</a>
+
+		<!--JavaScript-->
+		<script>
+			let calculation = '';
+			
+			updCal();
+
+			function updateCal(value) {
+				calculation += value;
+
+				updCal();
+			}
+
+			function updCal() {
+				document.querySelector('.js-show').innerHTML = calculation || 0;
+			}
+		</script>
+	</body>
+</html>

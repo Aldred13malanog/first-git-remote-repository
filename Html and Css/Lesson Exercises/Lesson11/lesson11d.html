@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>10e</title>
+	<style>
+		body {
+			font-family: Arial;
+		}
+		.grid {
+			display: grid;
+			grid-template-columns: 200px 200px 200px;
+			column-gap: 20px;
+		}
+		.container5 {
+			margin-top: 20px;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+			border-radius: 4px;
+		}
+		.profile-pic {
+			object-fit: cover;
+			width: 200px;
+			height: 200px;				
+		}
+		.profile-text {
+			font-size: 20px;
+			font-weight: bold;
+			margin-top: 8px;
+			margin-bottom: 0;
+			margin-left: 8px;
+		}
+		.mutual {
+			color: gray;
+		}
+		.add-friend {
+			border: none;
+			color: white;
+			background-color: rgb(24, 119, 242);
+			padding: 10px 20px;
+			border-radius: 4px;
+			font-size: 16px;
+			margin-left: 8px;
+			margin-bottom: 10px;
+			cursor: pointer;
+		}		
+		.row-mutual {
+			margin-left: 8px;
+			margin-top: 0;
+			margin-bottom: 6px;
+			display: grid;
+			grid-template-columns: 35px 1fr;
+			align-items: center;
+		}
+		.dog2 {
+			width: 30px;
+			height: 30px;
+			object-fit: cover;
+			border-radius: 25px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="grid">
+		<div class="container5">
+			<img src="cat.jpg" class="profile-pic">
+			<p class="profile-text">Oliver</p>
+			<div class="row-mutual">
+				<img class="dog2" src="dog2.jpg">
+				<p class="mutual">2 mutual friends</p>
+			</div>	
+			<button class="add-friend">Add Friend</button>
+		</div>
+	
+		<div class="container5">
+			<img src="cat2.jpg" class="profile-pic">
+			<p class="profile-text">Mimi</p>
+			<div class="row-mutual">
+				<img class="dog2" src="dog2.jpg">
+				<p class="mutual">3 mutual friends</p>		
+			</div>	
+			<button class="add-friend">Add Friend</button>			
+		</div>
+	
+		<div class="container5">
+			<img src="dog.jpg" class="profile-pic">
+			<p class="profile-text">Rex</p>
+			<div class="row-mutual">
+				<img class="dog2" src="dog2.jpg">
+				<p class="mutual">4 mutual friends</p>
+			</div>		
+			<button class="add-friend">Add Friend</button>
+		</div>
+	</div>
+	
+</body>
+</html>

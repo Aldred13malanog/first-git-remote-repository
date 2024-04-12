@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Stopwatch</title>
+</head>
+<body>
+	<p class="time"></p>
+	<button onclick="
+		start()
+	" class="timeBtn">Start</button>
+	<script>
+		let time;
+		const timepar = document.querySelector('.time');
+		const timebtn = document.querySelector('.timeBtn');
+		let num = {
+			ones: 0,
+			tenths: 0,
+			hundreds: 0,
+			thousandths: 0,
+			tenThousandths: 0,
+			hundredThousandths: 0
+		}
+
+		timeShow();
+
+		function start() {
+			clearInterval(time);
+			if (timebtn.innerHTML === 'Start') {
+				time = setInterval(() => {
+					if (num.tenThousandths === 9 && num.thousandths === 5 && num.hundreds === 9 && num.tenths === 5 && num.ones === 9) {
+						num.hundredThousandths++;
+						num.tenThousandths = 0;
+						num.thousandths = 0;
+						num.hundreds = 0;
+						num.tenths = 0;
+						num.ones = 0;
+					}
+					if (num.thousandths === 5 && num.hundreds === 9 && num.tenths === 5 && num.ones === 9) {
+						num.tenThousandths++;
+						num.thousandths = 0;
+						num.hundreds = 0;
+						num.tenths = 0;
+						num.ones = 0;
+					}	else if (num.hundreds === 9 && num.tenths === 5 && num.ones === 9) {
+						num.thousandths++;
+						num.hundreds = 0;
+						num.tenths = 0;
+						num.ones = 0;
+					} else if (num.tenths === 5 && num.ones === 9) {
+						num.hundreds++;
+						num.tenths = 0;
+						num.ones = 0;
+					} else if (num.ones === 9) {
+						num.tenths++;
+						num.ones = 0;
+					} else {
+						num.ones++;
+					}
+				
+					timeShow();
+					
+				}, 1000);
+
+				timebtn.innerHTML = 'Stop';
+			} else if (timebtn.innerHTML === 'Stop') {
+				timebtn.innerHTML = 'Reset';
+			} else if (timebtn.innerHTML === 'Reset') {
+				num.hundredThousandths = 0;
+				num.tenThousandths = 0;
+				num.thousandths = 0;
+				num.hundreds = 0;
+				num.tenths = 0;
+				num.ones = 0;
+				timeShow();
+				timebtn.innerHTML = 'Start';
+			}
+
+		}	
+		
+		
+		function timeShow() {
+			timepar.innerHTML = `${num.hundredThousandths}${num.tenThousandths}:${num.thousandths}${num.hundreds}:${num.tenths}${num.ones}`;
+		}
+		
+		
+	</script>
+</body>
+</html>

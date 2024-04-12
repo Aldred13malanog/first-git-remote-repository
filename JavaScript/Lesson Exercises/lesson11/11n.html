@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>11n</title>
+</head>
+<body>
+	<script>
+		function countWords(words) {
+			const word = {
+				apple: 0,
+				grape: 0
+			}
+			for (let i = 0; i < words.length; i++) {
+				const wrd = words[i];
+				if (wrd === 'apple') {
+					word.apple += 1;
+				} else if (wrd === 'grape') {
+					word.grape += 1;
+				}
+			}
+			return word;
+		}
+
+		//Alternate solution
+		/*
+		function countWords(words) {
+			const result = {};
+
+			for (let i = 0; i < words.length; i++) {
+				const word = words[i];
+
+				// result[word] adds/accesses a property using whatever is
+				// saved inside the 'word' variable.
+				// If word = 'apple', result[word] will do result['apple']
+				// If word = 'grape', result[word] will do result['grape']
+				if (!result[word]) {
+					result[word] = 1;
+				} else {
+					result[word]++;
+				}
+			}
+
+			return result;
+		}
+		*/
+
+		console.log(countWords(['apple', 'grape', 'apple', 'apple']));
+
+	</script>
+</body>
+</html>

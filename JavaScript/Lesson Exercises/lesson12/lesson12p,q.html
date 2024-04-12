@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>12p,q</title>
+</head>
+<body>
+  <!--12c,d-->
+	<button class="btn">Start</button>
+
+	<!--12e,f-->
+	<button class="addCart">Add to cart</button>
+	<p class="par"></p>
+
+	<!--12g,h,i-->
+	<button class="addMes">Add</button>
+	<button class="removeMes">Remove</button>
+
+
+	<script>
+		//12c,d
+		let button = document.querySelector('.btn');
+		button.addEventListener('click', () => {
+			button.innerHTML = 'Loading...';
+			setTimeout(() => {
+				button.innerHTML = 'Finished';
+			}, 1000);
+		});
+		
+
+
+
+		//12e,f
+		const btn2 = document.querySelector('.addCart');
+		btn2.addEventListener('click', () => {add()});
+
+		let timeOut;
+		function add() {
+			const parag = document.querySelector('.par');
+			parag.innerHTML = 'Added';
+			
+			clearTimeout(timeOut);
+			timeOut = setTimeout(() => {
+				parag.innerHTML = '';
+			}, 2000);
+		}
+
+		//12g,h,i
+		const btnAddMessage = document.querySelector('.addMes');
+		const btnRemMessage = document.querySelector('.removeMes');
+		btnAddMessage.addEventListener('click', () => {
+			message(1);
+		});
+		btnRemMessage.addEventListener('click', () => {
+			message(-1);
+		});
+
+		let messages = 0;
+		function message(param) {
+			messages += param;
+			
+			setInterval(() => {
+				if (messages <= 0) {
+					document.title = 'App';
+				} else if (messages > 0) {
+					if (document.title === 'App') {
+						document.title = `(${messages}) New messages`;
+					} else {
+						document.title = 'App';
+					}
+				}
+			}, 1000);
+		}
+	</script>
+
+</body>
+</html>

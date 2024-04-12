@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>11a-c</title>
+	<style>
+		.grid1 {
+			display: grid;
+			grid-template-columns: 200px 75px;
+		}
+		.lightblue {
+			background-color: lightblue;
+		}
+		.lightpink {
+			background-color: lightpink;
+		}
+
+		.grid2 {
+			display: grid;
+			grid-template-columns: 50px 1fr 75px;
+		}
+
+		.grid3 {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			column-gap: 20px;
+			row-gap: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="grid1">
+		<div class="lightblue">200px</div>
+		<div class="lightpink">75px</div>
+	</div><br>
+
+	<div class="grid2">
+		<div class="lightblue">col1</div>
+		<div class="lightpink">col2</div>
+		<div class="lightblue">col3</div>
+	</div><br>
+
+	<div class="grid3">
+		<div class="lightblue">col1</div>
+		<div class="lightpink">col2</div>
+		<div class="lightblue">col3</div>
+		<div class="lightpink">col4</div>
+		<div class="lightblue">col1</div>
+		<div class="lightpink">col2</div>
+		<div class="lightblue">col3</div>
+		<div class="lightpink">col4</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>13d-e</title>
+	<style>
+		body {
+			font-family: Arial;
+		}
+		p {
+			margin: 0;
+		}
+		.container {
+			box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+			width: 400px;
+			padding: 10px 15px;
+			border-radius: 4px;
+		}
+		.inbox-label {
+			color: rgb(120, 120, 120);
+			font-size: 14px;
+			margin-bottom: 20px;
+		}
+		.email {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			margin-bottom: 20px;
+		}
+		.row-info div {
+			flex: 1;
+		}
+		.profile-picture {
+			height: 50px;
+			width: 50px;
+			object-fit: cover;
+			border-radius: 25px;
+			margin-right: 10px;
+		}
+		.email-header {
+			display: flex;
+			justify-content: space-between;
+			flex-direction: row;
+			margin-bottom: 3px;
+		}
+		.sender {
+			font-weight: bold;
+			font-size: 18px;
+		}
+		.delivery-time {
+			font-size: 14px;
+			color: rgb(121, 121, 121);
+		}
+		.subject {
+			font-weight: bold;
+			margin-bottom: 5px;
+		}
+		.message {
+			color: rgb(119, 119, 119);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="inbox-label">ALL INBOXES</div>
+		<div class="email">
+			<img class="profile-picture" src="cat.jpg">
+			<div>
+				<div class="email-header">
+					<p class="sender">Chewy Promotions</p>
+					<p class="delivery-time">4:58 PM</p>
+				</div>
+				<p class="subject">Biggest sales of the year!</p>
+				<p class="message">Hey there! We're writing to tell you about our...</p>
+			</div>
+		</div>
+		<div class="email">
+			<img class="profile-picture" src="dog.jpg">
+			<div>
+				<div class="email-header">
+					<p class="sender">Best Buy</p>
+					<p class="delivery-time">12:32 PM</p>
+				</div>
+				<p class="subject">Your Best Buy eReceipt</p>
+				<p class="message">Thank you for shopping at Best Buy, here is...</p>
+			</div>
+		</div>
+		<div class="email">
+			<img class="profile-picture" src="cat2.jpg">
+			<div>
+				<div class="email-header">
+					<p class="sender">Netflix</p>
+					<p class="delivery-time">9:00 AM</p>
+				</div>
+				<p class="subject">Here's what's coming soon to Netflix</p>
+				<p class="message">Brand new movies and shows, old favorites...</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
