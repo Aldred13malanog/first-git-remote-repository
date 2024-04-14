@@ -57,7 +57,6 @@ products.forEach((product) => {
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
-let timeoutId;
 
 document.querySelectorAll('.js-add-to-cart-button')
 	.forEach((button) => {
@@ -69,15 +68,23 @@ document.querySelectorAll('.js-add-to-cart-button')
 			const selectValue = selectElement.value;
 			const quantity = Number(selectValue);
 
+
 			const addedMessage = document
 				.querySelector(`.js-added-to-cart-${productId}`);
+			let addedMessageTimeoutId;
+
 			addedMessage.classList.add('add-message-clicked');
 
-			clearTimeout(timeoutId);
+			if (addedMessageTimeoutId) {
+				clearTimeout(addedMessageTimeoutId);
+			}
 
-			timeoutId = setTimeout(() => {
+			const timeoutId = setTimeout(() => {
 				addedMessage.classList.remove('add-message-clicked');
 			}, 2000);
+
+			addedMessageTimeoutId = timeoutId;
+
 			
 
 			let matchingItem;
