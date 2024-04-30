@@ -20,8 +20,8 @@
 
 		function arraySwap(array) {
 			const lastIndex = array.length - 1;
-			let lastValue = array[lastIndex];
-			let firstValue = array[0];
+			const firstValue = array[0];
+			const lastValue = array[lastIndex];
 
 			array[0] = lastValue;
 			array[lastIndex] = firstValue;
@@ -39,11 +39,11 @@
 		for (let i = 5; i >= 0; i--) {
 			console.log(i);
 		}
-		
+
 		let i = 0;
 		while (i <= 10) {
 			console.log(i);
-			i += 2;
+			i+=2;
 		}
 
 		let i2 = 5;
@@ -52,10 +52,11 @@
 			i2--;
 		}
 		*/
-		const array = [1, 2, 3];
+
+		const num = [1, 2, 3];
 		let result = [];
-		for (let i = 0; i < array.length; i++) {
-			result.push(array[i] + 1);
+		for (let i = 0; i < num.length; i++) {
+			result.push(num[i] + 1);
 		}
 		console.log(result);
 
@@ -86,39 +87,38 @@
 				result.push(array1[i] + array2[i]);
 			}
 			return result;
-		}		
+		}
 		console.log(addArrays([1, 1, 2], [1, 1, 3]));
 		console.log(addArrays([1, 2, 3], [4, 5, 6]));
 
 		function countPositive(nums) {
-			let positiveNumbers = 0;
+			let positive = 0;
 			for (let i = 0; i < nums.length; i++) {
-				if (nums[i] > 0) {
-					positiveNumbers++;
+				const num = nums[i];
+				if (num > 0) {
+					positive++;
 				}
 			}
-			return positiveNumbers;
+			return positive;
 		}
 		console.log(countPositive([1, -3, 5]));
 		console.log(countPositive([-2, 3, -5, 7, 10]));
 
 		function minMax(nums) {
-			let result = {
+			const minMax = {
 				min: null,
 				max: null
-			};
-
+			}
 			for (let i = 0; i < nums.length; i++) {
 				const num = nums[i];
-				if (num > result.max || result.max === null) {
-					result.max = num;
+				if (num > minMax.max || minMax.max === null) {
+					minMax.max = num;
 				}
-				if (num < result.min || result.min === null) {
-					result.min = num;
+			  if (num < minMax.min || minMax.min === null) {
+					minMax.min = num
 				}
 			}
-
-			return result;
+			return minMax;
 		}
 		console.log(minMax([1, -3, 5]));
 		console.log(minMax([-2, 3, -5, 7, 10]));
@@ -126,65 +126,68 @@
 		console.log(minMax([3]));
 
 		function countWords(words) {
-			const result = {
+			const object = {
 				apple: 0,
 				grape: 0
 			}
-
 			for (let i = 0; i < words.length; i++) {
 				const word = words[i];
 				if (word === 'apple') {
-					result.apple += 1;
+					object.apple++;
 				} else if (word === 'grape') {
-					result.grape += 1;
+					object.grape++;
 				}
 			}
-
-			return result;
+			return object;
 		}
 		console.log(countWords(['apple', 'grape', 'apple', 'apple']));
 
-		const array1 = ['hello', 'world', 'search', 'good', 'search'];
-		const array2 = ['not', 'found'];
-		let index = -1;
-		for (let i = 0; i < array1.length; i++) {
-			if (array1[i] === 'search') {
-				index = i;
+		const words = ['hello', 'world', 'search', 'good', 'search'];
+		const words2 = ['not', 'found'];
+		let found = -1;
+		for (let i = 0; i < words.length; i++) {
+			const word = words[i];
+			if (word === 'search') {
+				found = i;
 				break;
 			}
 		}
-		console.log(index);
+		console.log(found);
 
-		index = -1;
-		for (let i = 0; i < array2.length; i++) {
-			if (array2[i] === 'search') {
-				index = i;
+		found = -1;
+		for (let i = 0; i < words2.length; i++) {
+			const word = words2[i];
+			if (word === 'search') {
+				found = i;
 				break;
 			}
 		}
-		console.log(index);
+		console.log(found);
 
 		function findIndex(array, word) {
-			let index = -1;
+			let index = 0;
 			for (let i = 0; i < array.length; i++) {
-				if (array[i] === word) {
-					index = i;
-					break;
+				const arrays = array[i];
+				if (arrays === word) {
+					return index = i;
 				}
 			}
-			return index;
-		}
+			return -1;
+ 		}
 		console.log(findIndex(['green', 'red', 'blue', 'red'], 'red'));
 		console.log(findIndex(['green', 'red', 'blue', 'red'], 'yellow'));
 
 		function removeEgg(foods) {
-			const foodCopyReversed = foods.slice().reverse();
+			const foodCopy = foods.slice();
+			const reverseFood = foodCopy.reverse();
+
 			let result = [];
-			let eggRemoved = 0;
-			for (let i = 0; i < foodCopyReversed.length; i++) {
-				const food = foodCopyReversed[i];
-				if (food === 'egg' && eggRemoved < 2) {					
-					eggRemoved++;
+			let removedEgg = 0;
+
+			for (let i = 0; i < reverseFood.length; i++) {
+				const food = reverseFood[i];
+				if (food === 'egg' && removedEgg < 2) {
+					removedEgg++;
 					continue;
 				} else {
 					result.push(food);
@@ -192,35 +195,35 @@
 			}
 			return result.reverse();
 		}
-
 		const foods = ['egg', 'apple', 'egg', 'egg', 'ham'];
 		console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
 		console.log(removeEgg(foods));
 		console.log(foods);
 
-		for (let i = 1; i <= 20; i++) {
+		for (let i = 0; i <= 20; i++) {
 			if (i % 3 === 0 && i % 5 === 0) {
 				console.log('FizzBuzz');
-			} else if (i % 3 === 0) {
-				console.log('Fizz');
 			} else if (i % 5 === 0) {
 				console.log('Buzz');
+			} else if (i % 3 === 0) {
+				console.log('Fizz');
 			} else {
 				console.log(i);
 			}
-		}
+		} 
 
 		function unique(array) {
 			let result = [];
 			for (let i = 0; i < array.length; i++) {
-				if (findIndex(result, array[i]) === -1) {
-					result.push(array[i]);
+				const arrays = array[i];
+				if (findIndex(result, arrays) === -1) {
+					result.push(arrays);
 				}
 			}
 			return result;
 		}
 		console.log(unique(['green', 'red', 'blue', 'red']));
 		console.log(unique(['red', 'green', 'green', 'red']));
-	</script>
-</body> 
+ 	</script>
+</body>
 </html>
