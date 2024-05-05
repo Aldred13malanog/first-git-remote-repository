@@ -13,7 +13,7 @@ export function renderOrderSummary() {
 
 		const matchingProduct = getProduct(productId);
 
-		const deliverOptionId = cartItem.deliverOptionId;
+		const deliverOptionId = cartItem.deliveryOptions;
 
 		const deliverOption = getDeliveryOption(deliverOptionId);
 

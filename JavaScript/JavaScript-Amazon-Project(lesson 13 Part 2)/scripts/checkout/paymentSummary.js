@@ -1,6 +1,6 @@
 import {cart} from '../../data/cart.js';
 import {getProduct} from '../../data/products.js';
-import {getDeliveryOption} from '../../data/deliveryOptions.js';
+import {getDeliveryOption} from '../../data/deliverOptions.js';
 import {formatCurrency} from '../utils/money.js';
 
 export function renderPaymentSummary() {
@@ -11,7 +11,7 @@ export function renderPaymentSummary() {
 		const product = getProduct(cartItem.productId);
 		productPriceCents += product.priceCents * cartItem.quantity;
 
-		const deliverOption = getDeliveryOption(cartItem.deliverOptionId);
+		const deliverOption = getDeliveryOption(cartItem.deliveryOptions);
 		shippingPriceCents += deliverOption.priceCents;
 	});
 
@@ -41,7 +41,7 @@ export function renderPaymentSummary() {
 		<div class="payment-summary-row subtotal-row">
 			<div>Total before tax:</div>
 			<div class="payment-summary-money">
-				$${totalBeforeTaxCents}
+				$${formatCurrency(totalBeforeTaxCents)}
 			</div>
 		</div>
 
