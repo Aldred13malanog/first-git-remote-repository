@@ -1,11 +1,14 @@
-import { cart, removeFromCart, updateDeliveryOption } from "../../data/cart.js";
+import { cart, removeFromCart, updateDeliveryOption, updateQuantity } from "../../data/cart.js";
 import { getProduct, products } from "../../data/products.js";
 import {formatCurrency} from '../utils/money.js';
-import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
-import { deliveryOptions, getDeliveryOption} from "../../data/deliverOptions.js";
+import { deliveryOptions, getDeliveryOption, calculateDeliveryDate} from "../../data/deliverOptions.js";
 import {renderPaymentSummary} from './paymentSummary.js';
+import { renderCheckoutHeader } from "./checkoutHeader.js";
 
 export function renderOrderSummary() {
+	//15k
+	renderCheckoutHeader();
+
 	let orderSummayHTML = '';
 
 	cart.forEach((cartItem) => {
@@ -13,18 +16,11 @@ export function renderOrderSummary() {
 
 		const matchingProduct = getProduct(productId);
 
-		const deliverOptionId = cartItem.deliveryOptions;
+		const deliveryOptionId = cartItem.deliveryOptions;
 
-		const deliverOption = getDeliveryOption(deliverOptionId);
-
-		const today = dayjs();
-		const deliveryDate = today.add(
-			deliverOption.deliveryDays,
-			'days'
-		);
-		const dateString = deliveryDate.format(
-			'dddd, MMMM D'
-		);
+		const deliveryOption = getDeliveryOption(deliveryOptionId);
+		//15l
+		const dateString = calculateDeliveryDate(deliveryOption);
 
 		orderSummayHTML += `
 			<div class="cart-item-container 
@@ -46,11 +42,13 @@ export function renderOrderSummary() {
 						</div>
 						<div class="product-quantity">
 							<span>
-								Quantity: <span class="quantity-label">${cartItem.quantity}</span>
+								Quantity: <span class="quantity-label js-quantity-label-${matchingProduct.id}">${cartItem.quantity}</span>
 							</span>
-							<span class="update-quantity-link link-primary">
+							<span class="update-quantity-link link-primary js-update-quantity-link" data-product-id="${matchingProduct.id}">
 								Update
 							</span>
+							<input class="quantity-input js-quantity-input-${matchingProduct.id}">
+							<span class="save-quantity-link link-primary js-save-quantity-link" data-product-id="${matchingProduct.id}">Save</span>
 							<span class="delete-quantity-link link-primary js-delete-quantity-link" data-product-id="${matchingProduct.id}">
 								Delete
 							</span>
@@ -72,14 +70,8 @@ export function renderOrderSummary() {
 		let html = '';
 
 		deliveryOptions.forEach((deliveryOption) => {
-			const today = dayjs();
-			const deliveryDate = today.add(
-				deliveryOption.deliveryDays,
-				'days'
-			);
-			const dateString = deliveryDate.format(
-				'dddd, MMMM D'
-			);
+			//15l
+			const dateString = calculateDeliveryDate(deliveryOption);
 
 			const priceString = deliveryOption.priceCents === 0
 				? 'FREE'
@@ -120,10 +112,10 @@ export function renderOrderSummary() {
 				const productId = link.dataset.productId;
 				removeFromCart(productId);
 
-				const container = document.querySelector(`.js-cart-item-container-${productId}`);
-				container.remove();
+				//15h
+				renderOrderSummary();
 
-				renderPaymentSummary();
+				renderPaymentSummary();				
 			});
 		});
 
@@ -134,6 +126,40 @@ export function renderOrderSummary() {
 				updateDeliveryOption(productId, deliveryOptionId);
 				renderOrderSummary();
 				renderPaymentSummary();
+			});
+		});
+
+	document.querySelectorAll('.js-update-quantity-link')
+		.forEach((update) => {
+			update.addEventListener('click', () => {
+				const {productId} = update.dataset;
+	
+				const container = document.querySelector(`.js-cart-item-container-${productId}`);
+				container.classList.add('is-editing-quantity');
+			});
+		});
+
+	document.querySelectorAll('.js-save-quantity-link')
+		.forEach((save) => {
+			save.addEventListener('click', () => {
+				const {productId} = save.dataset;
+				
+				const quantityInput = document.querySelector(`.js-quantity-input-${productId}`);
+				const newQuantity = Number(quantityInput.value);
+				
+	
+				if (newQuantity < 0 || newQuantity > 1000) {
+					alert('Quantity must be at least 0 and less than 1000');
+					return;
+				}
+				updateQuantity(productId, newQuantity);
+				renderOrderSummary();
+				renderPaymentSummary();
+					
+				const container = document.querySelector(`.js-cart-item-container-${productId}`);
+				container.classList.remove('is-editing-quantity');
+	
+				quantityInput.value = '';
 			});
 		});
 }

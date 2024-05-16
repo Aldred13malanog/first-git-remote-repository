@@ -131,6 +131,7 @@
 	height: 32px;
 	border-bottom: 16px;
 	cursor: pointer;
+	border-radius: 16px;
 }
 .notification-container {
 	position: relative;
