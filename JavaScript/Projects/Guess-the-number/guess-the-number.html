@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Guess the Number</title>
+	<link rel="stylesheet" href="guess-the-number.css">
+</head>
+<body>
+	<h1>Guess The Number!</h1>
+	<div class="level-container">
+		<div>Choose a Difficulty!</div>
+
+		<button class="very-easy js-very-easy">
+			Very Easy
+		</button>
+		<button class="easy js-easy">
+			Easy
+		</button>
+		<button class="medium js-medium">
+			Medium
+		</button>
+		<button class="hard js-hard">
+			Hard
+		</button>
+		<button class="very-hard js-very-hard">
+			Very Hard
+		</button>
+	</div>
+
+	<div class="description js-description"></div>
+	<input class="input-number" placeholder="What is your guess?" type="number">
+
+	<button class="submit-button js-submit-button">
+		Submit
+	</button>
+	<button class="generate-button js-generate-button">
+		Generate random number
+	</button>
+	<div class="score correct"></div>
+	<div class="score wrong"></div>
+	<button class="give-up js-give-up">
+		Give up?
+	</button>
+	<div class="showCorrect"></div>
+	<div class="help js-help">
+		How to play the game?
+	</div>
+	<a href="guess-the-number-2Player.html" target="_self">
+		2 Players(Not Currently Available)
+	</a>
+
+
+	<script src="guess-the-number.js"></script>
+</body>
+</html>
