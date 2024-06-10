@@ -4,38 +4,280 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Guess the Number</title>
+	<style>
+		body {
+			height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		h1 {
+			margin-top: 0;
+			margin-bottom: 10px;
+		}
+		.level-container {
+			width: 400px;
+			text-align: center;
+		}
+		.level-container div {
+			font-size: 18px;
+			margin-bottom: 10px;
+		}
+
+		.very-easy {
+			background-color: #fafafa;
+			color: rgb(0, 0, 0);
+			border: 1px solid black;
+			padding: 10px;
+			border-radius: 10px;
+			cursor: pointer;
+			transition: all 0.15s;
+		}
+		.very-easy:hover {
+			background-color: #00b3fa;
+			color: white;
+		}
+		.easy {
+			background-color: #ffffff;
+			color: rgb(0, 0, 0);
+			border: 1px solid black;
+			padding: 10px;
+			border-radius: 10px;
+			cursor: pointer;
+			transition: all 0.15s;
+		}
+		.easy:hover {
+			background-color: #003cff;
+			color: white;
+		}
+		.medium {
+			background-color: #ffffff;
+			color: rgb(0, 0, 0);
+			border: 1px solid black;
+			padding: 10px;
+			border-radius: 10px;
+			cursor: pointer;
+			transition: all 0.15s;
+		}
+		.medium:hover {
+			background-color: rgb(0, 128, 0);
+			color: white;
+		}
+		.hard {
+			background-color: #ffffff;
+			color: rgb(0, 0, 0);
+			border: 1px solid black;
+			padding: 10px;
+			border-radius: 10px;
+			cursor: pointer;
+			transition: all 0.15s;
+		}
+		.hard:hover {
+			background-color: rgb(177, 0, 0);
+			color: white;
+		}
+		.very-hard {
+			background-color: #ffffff;
+			color: rgb(0, 0, 0);
+			border: 1px solid black;
+			padding: 10px;
+			border-radius: 10px;
+			cursor: pointer;
+			transition: all 0.15s;
+		}
+		.very-hard:hover {
+			background-color: rgb(93, 16, 112);
+			color: white;
+		}
+
+		.description {
+			margin-top: 0;
+			margin-bottom: 10px;
+			font-size: 18px;
+			font-weight: 500;
+		}
+		.input-number {
+			height: 20px;
+			padding: 10px;
+			border-radius: 8px;
+			border: 1px solid rgb(0, 0, 0);
+			margin-bottom: 10px;
+			outline: none;
+		}
+		.input-number:focus {
+			border: 1px solid rgb(74, 123, 230);
+		}
+		button {
+			margin-bottom: 10px;
+		}
+		.sub {
+			border: none;
+			color: white;
+			padding: 10px 20px;
+			border-radius: 6px;
+			background-color: #61ac00;
+			transition: background-color 0.15s;
+			cursor: pointer;
+		} 
+		.sub:hover {
+			background-color: #5ba002;
+		}
+		.gen {
+			border: none;
+			color: white;
+			padding: 10px 20px;
+			border-radius: 6px;
+			background-color: #00a0fc;
+			cursor: pointer;
+			transition: background-color 0.15s;
+		}
+		.gen:hover {
+			background-color: #0077ff;
+		}
+		.score,
+		.wrong {
+			font-size: 16px;
+			margin-bottom: 10px;
+		}
+		.giveUp {
+			display: none;
+			padding: 10px 20px;
+			color: black;
+			border: 1px solid rgb(0, 0, 0);
+			border-radius: 6px;
+			background-color: #e9be00;
+			cursor: pointer;
+			transition: box-shadow 0.15s;
+		}
+		.giveUp:hover {
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		}
+		.show {
+			display: initial;
+		}
+	</style>
 </head>
 <body>
-	
-	<input class="input-number" type="number">
+	<h1>Guess The Number!</h1>
+	<div class="level-container">
+		<div>Pick a LeveL!</div>
+		<button onclick="
+			modes = 25;
+			document.querySelector('.js-description')
+				.innerHTML = `Pick a number from 1-${modes}!`;
+		" class="very-easy">Very Easy</button>
+		<button onclick="
+			modes = 50;
+			document.querySelector('.js-description')
+				.innerHTML = `Pick a number from 1-${modes}!`;
+		" class="easy">Easy</button>
+		<button onclick="
+			modes = 100;
+			document.querySelector('.js-description')
+				.innerHTML = `Pick a number from 1-${modes}!`;
+		" class="medium">Medium</button>
+		<button onclick="
+			modes = 200;
+			document.querySelector('.js-description')
+				.innerHTML = `Pick a number from 1-${modes}!`;
+		" class="hard">Hard</button>
+		<button onclick="
+			modes = 500;
+			document.querySelector('.js-description')
+				.innerHTML = `Pick a number from 1-${modes}!`;
+		" class="very-hard">Very Hard</button>
+	</div>
+	<div class="description js-description"></div>
+	<input class="input-number" placeholder="What is your guess?" type="number">
 	<button onclick="
 		submitAnswer();	
-	">Submit</button>
+	" class="sub">Submit</button>
 	<button onclick="
-		randomNumbers();			
-	">Generate random number</button>
+		randomNumbers(modes);			
+	" class="gen">Generate random number</button>
+	<div class="score"></div>
+	<div class="wrong"></div>
+	<button onclick="
+		giveUp();
+	" class="giveUp">Give up?</button>
+	<div class="showCorrect"></div>
+
+
 	<script>
-		const randomNumber = randomNumbers();
-
-		function randomNumbers() {
-			const ranNum = Math.floor(Math.random() * 100);
-			console.log(ranNum);
-		
+		let random;
+		let score = {
+			correct: 0,
+			wrong: 0
 		}
-		
-		function submitAnswer() {		
-			
-		
-			const input = document.querySelector('.input-number');
-			const inputValue = input.value;
+		let modes = 100;
+		scoreStatus();
+		document.querySelector('.js-description').innerHTML = `
+			Pick a number from 1-${modes}!
+		`;
 
-			if (inputValue === randomNumber) {
-				alert('You are correct!');
-			} else if (inputValue < randomNumber) {
-				alert('Number is low!');
-			} else if (inputValue > randomNumber) {
-				alert('Number is high!');
+		function randomNumbers(mode) {
+			const ranNum = Math.floor(Math.random() * mode);
+			random = ranNum;
+			console.log(random);
+		}
+
+		function submitAnswer() {		
+			let inputValue = document.querySelector('.input-number');
+
+
+			if (random == undefined) {
+				alert('Generate Number First!');
 			}
+			if (inputValue.value == '') {
+				alert('Put a number first');
+				return;
+			}
+			if (inputValue.value == random) {
+				inputValue.value = '';
+				score.correct += 1;
+				scoreStatus();
+				alert('You are correct!, Congratulation!');
+				randomNumbers(modes);
+				document.querySelector('.giveUp').classList.remove('show');
+				document.querySelector('.showCorrect').innerHTML = '';
+			} else if (inputValue.value < random) {
+				score.wrong += 1;
+				inputValue.value = '';
+				scoreStatus();
+				alert('Incorrect! Your Number is low!, Try Again');
+			} else if (inputValue.value > random) {
+				score.wrong += 1;
+				scoreStatus();
+				inputValue.value = '';
+				alert('Incorrect! Your Number is high!, Try Again');
+			}
+		}
+
+		function scoreStatus() {
+			document.querySelector('.score').innerHTML = `
+			Correct guess: ${score.correct}
+		`;
+			document.querySelector('.wrong').innerHTML = `
+			Wrong guess: ${score.wrong}`;
+			if (score.wrong % 10 === 0 && score.wrong !== 0) {
+				document.querySelector('.giveUp').classList.add('show');
+			}
+		}
+		document.body.addEventListener('keydown', (event) => {
+			if (event.key === 'Enter') {
+				submitAnswer();
+			}
+		});
+
+		function giveUp() {
+			if (random == undefined) {
+				return;
+			}
+			document.querySelector('.showCorrect').innerHTML = `
+				Correct Number: ${random}
+			`;
 		}
 	</script>
 </body>
