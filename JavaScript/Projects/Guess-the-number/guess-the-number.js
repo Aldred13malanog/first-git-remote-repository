@@ -11,23 +11,26 @@ description();
 
 //generate random num
 function randomNumbers(mode) {
-	const ranNum = Math.floor(Math.random() * mode);
+	const ranNum = Math.floor(Math.random() * mode) + 1;
 	random = ranNum;
 }
 
 //submit button
 function submitAnswer() {		
-	let inputValue = document.querySelector('.input-number');
+	const inputElem = document.querySelector('.input-number');
+	let inputValue = inputElem.value;
+	const lowRange = random - 10;
+	const highRange = random + 10;
 
 	if (random == undefined) {
 		alert('Generate Number First!');
 	}
-	if (inputValue.value == '') {
+	if (inputValue == '') {
 		alert('Put a number first');
 		return;
 	}
-	if (inputValue.value == random) {
-		inputValue.value = '';
+	if (inputValue == random) {
+		inputElem.value = '';
 		score.correct++;
 		scoreStatus();
 		alert('You are correct!, Congratulation!');
@@ -35,17 +38,29 @@ function submitAnswer() {
 		giveUpBtn.classList.remove('show');
 		showsCorrectNum.innerHTML = '';
 
-	} else if (inputValue.value < random) {
+	} else if (inputValue < random && inputValue >= lowRange) {
 		score.wrong++;
-		inputValue.value = '';
+		inputElem.value = '';
 		scoreStatus();
 		alert('Incorrect! Your Number is low!, Try Again');
 
-	} else if (inputValue.value > random) {
+	} else if (inputValue < lowRange) {
+		score.wrong++;
+		inputElem.value = '';
+		scoreStatus();
+		alert('Incorrect! Your Number is too low!, Try Again');
+
+	} else if (inputValue > random && inputValue <= highRange) {
 		score.wrong++;
 		scoreStatus();
-		inputValue.value = '';
+		inputElem.value = '';
 		alert('Incorrect! Your Number is high!, Try Again');
+
+	} else if (inputValue > highRange) {
+		score.wrong++;
+		scoreStatus();
+		inputElem.value = '';
+		alert('Incorrect! Your Number is too high!, Try Again');
 	}
 }
 
@@ -70,9 +85,6 @@ function scoreStatus() {
 
 //give up button
 function giveUp() {
-	if (random == undefined) {
-		return;
-	}
 	showsCorrectNum.innerHTML = `
 		Correct Number: ${random}
 	`;
