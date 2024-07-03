@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lesson 18 HTML</title>
+</head>
+<body>
+	<script>
+		// 18a check
+		/*
+		const xhr = new XMLHttpRequest();
+
+		xhr.addEventListener('load', () => {
+			console.log(xhr.response);
+		});
+		xhr.open('GET', 'https://supersimplebackend.dev/greeting');
+		xhr.send();
+
+		// Output: Hello!
+		*/
+
+		// 18b check
+		/*
+		fetch('https://supersimplebackend.dev/greeting').then((response) => {
+			return response.text();
+		}).then((responseText) => {
+			console.log(responseText);
+		});
+
+		// Output: Hello!
+		*/
+
+		// 18c check
+		/*
+		async function asyncFetch() {
+			const response = await fetch('https://supersimplebackend.dev/greeting');
+			const greetingText = await response.text();
+			console.log(greetingText);
+		}
+		asyncFetch();
+
+		// Output: Hello!
+		*/
+
+		// 18d
+		/*
+		async function sendMyname() {
+			const response = await fetch('https://supersimplebackend.dev/greeting', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					name: 'Aldred'
+				})
+			});
+
+			const greetingText = await response.text();
+			console.log(greetingText);
+		}
+		sendMyname();
+
+		// Output: Hi Aldred!
+		*/
+
+		// 18e check
+		/*
+		async function getAmazon() {
+			const response = await fetch('https://amazon.com');
+			const text = await response.text();
+			console.log(text);
+		}
+		getAmazon();
+
+		// Output: CORS(Cross-Origin Resource Sharing) error
+		*/
+
+		// 18f check
+		/*
+		async function getAmazon() {
+			try{
+				const response = await fetch('https://amazon.com');
+				const text = await response.text();
+				console.log(text);
+			} catch (error) {
+				console.log('CORS error. Your request was blocked by the backend');
+			}
+		}
+		getAmazon();
+		*/
+
+		// 18g check
+		/*
+		async function noDataSend() {
+			try {
+				const response = await fetch('https://supersimplebackend.dev/greeting', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'text/html'
+					}
+				});
+
+				if (response.status >= 400) {
+					throw response;
+				};
+			} catch (error) {
+				if (error.status === 400) {
+					const errorJson = await error.json();
+					console.log(errorJson);
+				}	else {
+					console.log('Network error. Please try again later!');
+				}
+			}
+		}
+		noDataSend();
+		*/
+		
+
+	</script>
+</body>
+</html>

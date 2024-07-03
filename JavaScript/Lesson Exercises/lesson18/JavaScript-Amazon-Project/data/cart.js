@@ -82,3 +82,18 @@ export function loadCart(fun) {
 	xhr.open('GET', 'https://supersimplebackend.dev/cart');
 	xhr.send();
 }
+
+// 18h check
+export async function loadCartFetch() {
+	const response = await fetch('https://supersimplebackend.dev/cart');
+
+	const text = await response.text();
+	console.log('load cart')
+	return text;
+}
+loadCartFetch();
+
+export function resetCart() {
+	cart = [];
+	saveToStorage();
+}
